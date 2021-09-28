@@ -1,10 +1,72 @@
 #include <iostream>
 
+// In c++, structs and classes are identical. You can do the same things with
+// both of them. The only difference is the default access specifer:
+// - Public for structs
+// - Private for classes
+
+// The declaration of a class looks like the following code:
+// class name {
+// access specifier:
+//     name();
+//     ~name();
+//
+//     member1;
+//     member2;
+// };
+
+// In a class, we first specify the access specifiers. There are three access
+// specifiers: public, private, and protected:
+// - public: all members are accessible from anywhere.
+// - private: members are accessible from within the class intself only.
+// - protected: members are accessed by other classes that inherit from the
+// class.
+
+// name(); and ~name(); are called the constructor and destructor of a class.
+// They have the same name as the name of the class itself.
+
+// The constructor is a special function that gets called when you create a new
+// object of the class.
+
+// The destructor is called when teh object is destroyed.
+
+// We can customize a constructor to set values before using the member
+// variables. This is called constructor overloading.
+
+// Although the constructor and destructor are functions, no return is provided.
+// This is because they are not there for returning values.
+
+// Take a look at the next class:
+class shape {
+    int a, b;
+public:
+    shape(int _lenght, int _width) {
+        a = _lenght;
+        b = _width;
+
+        std::cout << "Length is: " << a << " width is: " << b << "\n";
+    }
+
+    void area() {
+        std::cout << "Area is: " << a * b << "\n";
+    }
+};
+
+void func_1 () {
+    shape square(4, 4);
+    square.area();
+
+    shape rectangle(10, 5);
+    rectangle.area();
+}
+
+// ----------------------------------------------------------------------------
+
 // With classes you are basically creating a new variable type.
 
 class Player 
 {
-    public:
+public:
     int x, y;
     int speed;   
 
@@ -56,6 +118,8 @@ int main(void)
     //      int speed;
     // }
 
-    // public we'll allow us to access that variables outside of the class.
+    // public will allow us to access that variables outside of the class.
+
+    func_1();
     return 0;
 }
